@@ -3,7 +3,6 @@ description: "Ежедневный рацион и утренние тренир
 baseurl: ""
 url: "https://hemypo.github.io"
 
-# подключаем удалённую тему Minimal Mistakes
 theme: minimal-mistakes-jekyll
 
 plugins:
@@ -13,21 +12,8 @@ plugins:
   - jekyll-optional-front-matter
   - jekyll-include-cache
 
-
-# навигация
 nav:
-  - title: Рацион сегодня
-    url: /today/
-  - title: Тренировки
-    url: /workouts/
-  - title: Список покупок
-    url: /shopping/
-  - title: Полное меню
-    url: /menu/
-  - title: Рецепты
-    url: /recipes/
-
-# коллекции для рецептов
+  # ...
 collections:
   recipes:
     output: true
