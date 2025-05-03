@@ -1,21 +1,21 @@
-name: Build and Deploy Jekyll site with Minimal Mistakes
+name: Build and Deploy Jekyll site
 
 on:
   push:
     branches: [ main ]
   workflow_dispatch:
 
-# Разрешаем выдачу OIDC-токена для deploy-pages
 permissions:
-  contents: read          # нужно, чтобы Actions мог читать репозиторий
-  pages: write            # нужно, чтобы Actions мог пушить в Pages
-  id-token: write         # обязательно для получения ACTIONS_ID_TOKEN_REQUEST_URL
+  contents: read      # читать репозиторий
+  pages: write        # писать в Pages
+  id-token: write     # нужно для deploy-pages
 
 jobs:
-  build-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
@@ -30,7 +30,7 @@ jobs:
       - name: Build site
         run: bundle exec jekyll build --destination _site
 
-      - name: Setup GitHub Pages
+      - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
@@ -38,6 +38,6 @@ jobs:
         with:
           path: _site
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
