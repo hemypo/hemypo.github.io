@@ -5,12 +5,17 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+# Разрешаем выдачу OIDC-токена для deploy-pages
+permissions:
+  contents: read          # нужно, чтобы Actions мог читать репозиторий
+  pages: write            # нужно, чтобы Actions мог пушить в Pages
+  id-token: write         # обязательно для получения ACTIONS_ID_TOKEN_REQUEST_URL
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
