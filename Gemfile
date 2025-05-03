@@ -8,4 +8,5 @@ gem "jekyll-seo-tag"
 group :jekyll_plugins do
   gem "jekyll-paginate"
   gem "jekyll-optional-front-matter"
+  gem "jekyll-include-cache"
 end

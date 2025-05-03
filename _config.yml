@@ -4,11 +4,14 @@ baseurl: ""
 url: "https://hemypo.github.io"
 
 # подключаем удалённую тему Minimal Mistakes
-theme: "minimal-mistakes-jekyll"
+theme: minimal-mistakes-jekyll
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-remote-theme  # не нужен, но можно оставить
+  - jekyll-paginate
+  - jekyll-optional-front-matter
+  - jekyll-include-cache
 
 
 # навигация
